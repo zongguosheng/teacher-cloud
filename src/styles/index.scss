@@ -1,0 +1,310 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+@import './btn.scss';
+
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*{
+  @include scrollBar;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.no-padding {
+  padding: 0px !important;
+}
+
+.padding-content {
+  padding: 4px 0;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+.pr-5 {
+  padding-right: 5px;
+}
+
+.pl-5 {
+  padding-left: 5px;
+}
+
+.block {
+  display: block;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.inlineBlock {
+  display: block;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+aside {
+  background: #eef1f6;
+  padding: 8px 24px;
+  margin-bottom: 20px;
+  border-radius: 2px;
+  display: block;
+  line-height: 32px;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  color: #2c3e50;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  a {
+    color: #337ab7;
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(32, 160, 255);
+    }
+  }
+}
+
+//main-container全局样式
+.app-container {
+  padding: 20px;
+}
+
+.app-main {
+  height: calc(100vh - 118px);
+  overflow-y: auto;
+  background-color: #F0F2F5;
+}
+
+.app-main > .container {
+  margin: 0 15px;
+  padding: 15px;
+  background-color: #fff;
+  min-height: calc(100vh - 133px);
+}
+
+.app-main > .container-margin {
+  margin: 0 15px;
+  min-height: calc(100vh - 133px);
+}
+
+.tooltips {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &.end {
+    justify-content: flex-end;
+  }
+
+  .el-button {
+    transition: all 0.4s;
+  }
+
+  > div {
+    display: flex;
+    align-items: center;
+
+    > .el-input {
+      margin-bottom: 17px;
+    }
+
+    .el-input + .el-button {
+      margin-left: 30px;
+    }
+
+    > span {
+      font-size: 14px;
+    }
+  }
+
+  .el-row + .el-row {
+    margin-top: 15px;
+  }
+
+  .el-form-item--mini.el-form-item,
+  .el-form-item--small.el-form-item,
+  .el-button {
+    margin-bottom: 17px;
+  }
+
+  .el-form-item .el-button {
+    margin-bottom: 0;
+  }
+
+  .el-form--inline .el-form-item:last-child {
+    margin-right: 0;
+  }
+}
+
+.el-dialog__wrapper.beauty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .el-dialog {
+    display: flex;
+    flex-direction: column;
+    margin: 0 !important;
+
+    .el-dialog__header, .el-dialog__footer {
+      flex-shrink: 0;
+    }
+
+    .el-dialog__body {
+      flex-grow: 1;
+      max-height: calc(90vh - 116px);
+      // @include scroll(5px);
+      overflow: auto;
+    }
+  }
+}
+
+// 按钮在vxe-table表格里的时候，去掉padding，使表格更紧凑
+.vxe-cell{
+  .button-link + .el-button,
+  .button-link + .button-link,
+  .el-button + .button-link,
+  .el-button + .el-button
+  {
+    margin-left: 8px;
+  }
+}
+
+body {
+  .vue-treeselect__label {
+    color: #666;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 30px;
+  }
+
+  .vue-treeselect__placeholder,
+  .vue-treeselect__single-value {
+    line-height: 30px;
+  }
+}
+
+.components-container {
+  margin: 30px 50px;
+  position: relative;
+}
+
+.pagination-container {
+  margin-top: 30px;
+}
+
+.text-center {
+  text-align: center
+}
+
+.sub-navbar {
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+  width: 100%;
+  text-align: right;
+  padding-right: 20px;
+  transition: 600ms ease position;
+  background: linear-gradient(90deg, rgba(32, 182, 249, 1) 0%, rgba(32, 182, 249, 1) 0%, rgba(33, 120, 241, 1) 100%, rgba(33, 120, 241, 1) 100%);
+
+  .subtitle {
+    font-size: 20px;
+    color: #fff;
+  }
+
+  &.draft {
+    background: #d0d0d0;
+  }
+
+  &.deleted {
+    background: #d0d0d0;
+  }
+}
+
+.link-type,
+.link-type:focus {
+  color: #337ab7;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(32, 160, 255);
+  }
+}
+
+.filter-container {
+  padding-bottom: 10px;
+
+  .filter-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 10px;
+  }
+}
+
+//refine vue-multiselect plugin
+.multiselect {
+  line-height: 16px;
+}
+
+.multiselect--active {
+  z-index: 1000 !important;
+}
